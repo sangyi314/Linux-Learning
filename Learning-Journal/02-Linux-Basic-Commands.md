@@ -102,6 +102,7 @@ Every Linux user has a dedicated home directory.
 | root        | `/root`            |
 
 After logging in, the terminal starts inside the current user's home directory.
+
 *Learned up to here on 08/07/2026.*
 ---
 
