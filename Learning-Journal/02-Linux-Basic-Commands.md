@@ -54,7 +54,7 @@ It describes the location of a file beginning from the root directory.
 Example:
 
 ```bash
-/home/alice/file.txt
+/home/sam/file.txt
 ```
 
 ---
@@ -111,6 +111,8 @@ After logging in, the terminal starts inside the current user's home directory.
 
 ## pwd
 
+Means print work directory.
+
 Display the current working directory.
 
 ```bash
@@ -120,12 +122,14 @@ pwd
 Example output:
 
 ```text
-/home/alice
+/home/sam
 ```
 
 ---
 
 ## ls
+
+Means list.
 
 List files and directories.
 
@@ -153,6 +157,8 @@ ls -a
 
 ## cd
 
+Means change directory.
+
 Change the current working directory.
 
 Examples:
@@ -170,6 +176,8 @@ cd /
 
 ## mkdir
 
+Means make directory.
+
 Create one or more directories.
 
 ### Syntax
@@ -181,6 +189,7 @@ mkdir [OPTION] DIRECTORY
 ### Example
 
 ```bash
+mkdir /home/sam/test
 mkdir project
 mkdir -p project/src/docs
 ```
