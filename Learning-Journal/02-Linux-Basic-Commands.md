@@ -194,6 +194,9 @@ mkdir project
 mkdir -p project/src/docs
 ```
 
+Ensure that you run this command inside the **Home** directory. Permission errors will occur
+if you run it outside the **Home** floder.
+
 | Option | Description                             |
 | ------ | --------------------------------------- |
 | `-p`   | Create parent directories automatically |
