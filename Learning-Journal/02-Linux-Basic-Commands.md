@@ -278,6 +278,8 @@ cp -r project project_backup
 
 ## mv
 
+Means move.
+
 Move or rename files.
 
 Examples:
@@ -299,6 +301,8 @@ mv old.txt new.txt
 # Removing Files
 
 ## rm
+
+Means remove.
 
 Delete files or directories.
 
