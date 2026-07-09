@@ -180,8 +180,6 @@ Means make directory.
 
 Create one or more directories.
 
-### Syntax
-
 ```bash
 mkdir [OPTION] DIRECTORY
 ```
@@ -317,6 +315,8 @@ rm -r project
 
 rm -rf project
 ```
+
+Wildcards can be used in this command.
 
 | Option | Description                        |
 | ------ | ---------------------------------- |
