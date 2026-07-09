@@ -252,6 +252,8 @@ Useful shortcuts:
 
 ## cp
 
+Means copy.
+
 Copy files or directories.
 
 ### Syntax
