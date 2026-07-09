@@ -309,7 +309,7 @@ Delete files or directories.
 Examples:
 
 ```bash
-rm [OPTION] FILE
+rm [OPTION] FILE1 FILE2 FILE3 ......
 
 rm file.txt
 
