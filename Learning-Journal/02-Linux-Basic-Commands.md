@@ -465,3 +465,5 @@ In this chapter, you learned how to:
 * Combine commands using pipes
 
 These commands are the foundation of everyday Linux usage and will be used throughout the rest of this tutorial.
+
+*Learned up to here on 10/07/2026*
