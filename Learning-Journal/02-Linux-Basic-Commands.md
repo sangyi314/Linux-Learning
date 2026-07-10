@@ -774,6 +774,7 @@ In this chapter, you learned how to:
 * Search for files and text
 * Count file contents
 * Combine commands using pipes
+* Use the vim to edit files
 
 These commands are the foundation of everyday Linux usage and will be used throughout the rest of this tutorial.
 
