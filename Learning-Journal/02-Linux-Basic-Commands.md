@@ -375,8 +375,8 @@ find ~ -size -10k
 
 | Size Pattern | Description |
 | ------------ | ----------- |
-|     '+'      | More than   |
-|     '-'      | Less than   | 
+|     `+`      | More than   |
+|     `-`      | Less than   | 
 
 Wildcards can be used in this command.
 
@@ -449,6 +449,166 @@ Pipelines can be chained together.
 
 ```bash
 cat log.txt | grep "ERROR" | wc -l
+```
+
+---
+
+# Output Commands
+
+## echo
+
+Print text to the terminal.
+
+```bash
+echo TEXT
+```
+
+Example:
+
+```bash
+echo "Hello Linux"
+
+echo "My name is Jack"
+```
+
+---
+
+## Backticks (`)
+
+Execute the command inside backticks first, then output its result.
+
+Example:
+
+```bash
+echo `pwd`
+```
+
+Output:
+
+```text
+/home/sam
+```
+
+---
+
+# Redirection
+
+Redirect command output to a file.
+
+| Symbol | Description                                  |
+| ------ | -------------------------------------------- |
+| `>`    | Overwrite the target file.                   |
+| `>>`   | Append output to the end of the target file. |
+
+Examples:
+
+```bash
+echo "Hello" > test.txt
+```
+
+```bash
+echo "Linux" >> test.txt
+```
+
+```bash
+ls > filelist.txt
+```
+
+---
+
+## tail
+
+Display the last lines of a file.
+
+```bash
+tail [OPTION] FILE
+```
+
+Examples:
+
+```bash
+tail test.txt
+```
+
+```bash
+tail -f /var/log/messages
+```
+
+Options:
+
+| Option | Description                                                      |
+| ------ | ---------------------------------------------------------------- |
+| `-f`   | Follow the file and display newly appended content continuously. |
+| `-num` | Dispaly the last `num` lines of the file.                        | 
+
+---
+
+## head
+
+Display the first lines of a file.
+
+**Syntax**
+
+```bash
+head [-n] FILE
+```
+
+Options:
+
+| Option | Description                             |
+| ------ | --------------------------------------- |
+| `-n`   | Specify the number of lines to display. |
+
+Examples:
+
+```bash
+head test.txt
+```
+
+```bash
+head -n 10 test.txt
+```
+
+---
+
+# Text Editor
+
+## vi Editor
+
+### Command Mode Shortcuts
+
+| Mode    | Key   | Description                                    |
+| ------- | ----- | ---------------------------------------------- |
+| Command | `i`   | Insert before the cursor.                      |
+| Command | `a`   | Insert after the cursor.                       |
+| Command | `I`   | Insert at the beginning of the current line.   |
+| Command | `A`   | Insert at the end of the current line.         |
+| Command | `o`   | Create a new line below and enter Insert mode. |
+| Command | `O`   | Create a new line above and enter Insert mode. |
+| Insert  | `Esc` | Return to Command mode.                        |
+
+---
+
+### Example Workflow
+
+```bash
+vi test.txt
+```
+
+Command mode:
+
+```text
+i      # Insert before cursor
+Esc    # Return to command mode
+```
+
+Save and quit:
+
+```text
+:w      Save file
+:q      Quit
+:wq     Save and quit
+:q!     Quit without saving
 ```
 
 ---
