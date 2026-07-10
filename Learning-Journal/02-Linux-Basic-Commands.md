@@ -386,6 +386,8 @@ Wildcards can be used in this command.
 
 ## grep
 
+Means Global Regular Expression and Print
+
 Search for text matching a pattern.
 
 Examples:
