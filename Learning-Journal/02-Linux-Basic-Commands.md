@@ -318,6 +318,12 @@ rm -rf project
 
 Wildcards can be used in this command.
 
+Wildcards:
+
+| Pattern | Description          |
+| ------- | -------------------- |
+| `*`     | Match any characters |
+
 | Option | Description                        |
 | ------ | ---------------------------------- |
 | `-r`   | Remove directories recursively     |
@@ -349,8 +355,6 @@ which ls
 
 Search for files by name.
 
-### Syntax
-
 ```bash
 find PATH -name PATTERN
 ```
@@ -363,11 +367,7 @@ find . -name "*.txt"
 find /home -name "test*"
 ```
 
-Wildcards:
-
-| Pattern | Description          |
-| ------- | -------------------- |
-| `*`     | Match any characters |
+Wildcards can be used in this command.
 
 ---
 
