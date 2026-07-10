@@ -357,6 +357,8 @@ Search for files by name.
 
 ```bash
 find PATH -name PATTERN
+
+find PATH -size PATTERN
 ```
 
 Examples:
@@ -365,7 +367,16 @@ Examples:
 find . -name "*.txt"
 
 find /home -name "test*"
+
+find . -size +100M
+
+find ~ -size -10k
 ```
+
+| Size Pattern | Description |
+| ------------ | ----------- |
+|     '+'      | More than   |
+|     '-'      | Less than   | 
 
 Wildcards can be used in this command.
 
