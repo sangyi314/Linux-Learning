@@ -541,16 +541,16 @@ Options:
 | `-f`   | Follow the file and display newly appended content continuously. |
 | `-num` | Dispaly the last `num` lines of the file.                        | 
 
+Press CTRL+C to stop the `-f` running.
+
 ---
 
 ## head
 
 Display the first lines of a file.
 
-**Syntax**
-
 ```bash
-head [-n] FILE
+head [OPTION] FILE
 ```
 
 Options:
