@@ -10,17 +10,21 @@ This chapter focuses on some of the most important Linux basics: switching users
 
 The su command is used to switch from the current user to another user.
 
-### Syntax
-
-bash su [-] [user] 
+```bash
+ su [-] [user] 
+```
 
 ### Example
 
-bash su root 
+```bash
+ su root 
+```
 
-Use - to start a full login shell for the target user:
+Use - to start a full login shell for the target user(Recommended)
 
-bash su - username 
+```bash
+ su - username 
+```
 
 ### Notes
 
@@ -29,14 +33,15 @@ bash su - username
 - It is commonly used when you need to act as another user, especially root.
 
 ---
-
 ## 2. Running Commands with sudo
 
 The sudo command allows an authorized user to run commands with elevated privileges.
 
 ### Example
 
-bash sudo apt update 
+```bash
+ sudo apt update 
+```
 
 ### Passwordless sudo
 
@@ -44,12 +49,12 @@ You can configure sudo in visudo so that a user can run commands without enterin
 
 Example configuration:
 
-text itheima ALL=(ALL) NOPASSWD: ALL 
+text sam ALL=(ALL) NOPASSWD: ALL 
 
 This means:
 
-- itheima can run commands as any user
-- itheima can run all commands
+- sam can run commands as any user
+- sam can run all commands
 - No password is required
 
 > Use passwordless sudo carefully, because it weakens system security.
