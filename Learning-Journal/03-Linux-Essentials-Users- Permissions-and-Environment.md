@@ -10,17 +10,21 @@ This chapter focuses on some of the most important Linux basics: switching users
 
 The su command is used to switch from the current user to another user.
 
-### Syntax
-
-bash su [-] [user] 
+```bash
+ su [-] [user] 
+```
 
 ### Example
 
-bash su root 
+```bash
+ su root 
+```
 
-Use - to start a full login shell for the target user:
+Use - to start a full login shell for the target user(Recommended)
 
-bash su - username 
+```bash
+ su - username 
+```
 
 ### Notes
 
