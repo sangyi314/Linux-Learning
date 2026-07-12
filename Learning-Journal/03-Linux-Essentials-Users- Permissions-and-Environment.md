@@ -667,25 +667,6 @@ $ ls -l script.sh
 
 ---
 
-# 2.5 Permission Relationship Diagram
-
-```mermaid
-graph LR
-    u[Owner (u)] -->|4| ru[r]
-    u -->|2| wu[w]
-    u -->|1| xu[x]
-
-    g[Group (g)] -->|4| rg[r]
-    g -->|2| wg[w]
-    g -->|1| xg[x]
-
-    o[Others (o)] -->|4| ro[r]
-    o -->|2| wo[w]
-    o -->|1| xo[x]
-```
-
----
-
 # 2.6 Summary
 
 | Command                      | Purpose                             |
