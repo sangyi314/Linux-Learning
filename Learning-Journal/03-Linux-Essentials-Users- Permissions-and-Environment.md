@@ -1166,3 +1166,5 @@ These commands help confirm that users, groups, and memberships have been create
 ---
 
 > **In this chapter, we learned the fundamentals of Linux user and permission management. We explored how to switch users and execute commands with administrative privileges, manage file ownership and permissions, and create, modify, and organize users and groups. Mastering these essential concepts provides a solid foundation for secure system administration and efficient Linux file management.**
+
+**Learned up to here on 12/07/2026.**
