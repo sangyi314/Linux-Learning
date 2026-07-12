@@ -102,7 +102,7 @@ su - username
 
 * `su` switches to another user.
 * `su -` loads the target user's **login environment**.
-* `su - username` switches to a specific user while loading that user's environment variables(recommended).
+* `su - username` switches to a specific user while loading that user's environment variables.
 
 Using the hyphen (`-`) is recommended because it creates a complete login session.
 
@@ -112,7 +112,7 @@ Using the hyphen (`-`) is recommended because it creates a complete login sessio
 
 ```bash
 $ whoami
-sam
+alice
 
 $ su -
 Password:
@@ -124,7 +124,7 @@ root
 ### Output
 
 ```text
-sam
+alice
 root
 ```
 
@@ -194,7 +194,7 @@ sudo command
 
 ```bash
 $ sudo ls /root
-[sudo] password for alice:
+[sudo] password for sam:
 rootfile.txt
 ```
 
@@ -218,7 +218,7 @@ Current user:
 
 ```bash
 $ whoami
-alice
+sam
 ```
 
 Run a privileged command:
@@ -231,7 +231,7 @@ Continue as the normal user:
 
 ```bash
 $ whoami
-alice
+sam
 ```
 
 ---
@@ -281,20 +281,20 @@ sudo visudo
 ## Example Configuration
 
 ```text
-alice ALL=(ALL) NOPASSWD: ALL
+sam ALL=(ALL) NOPASSWD: ALL
 ```
 
 ### Meaning
 
 | Field    | Description              |
 | -------- | ------------------------ |
-| alice    | Username                 |
+| sam      | Username                 |
 | ALL      | All hosts                |
 | (ALL)    | May act as any user      |
 | NOPASSWD | No password required     |
 | ALL      | May execute all commands |
 
-This configuration allows **alice** to execute **any command without entering a password**.
+This configuration allows **sam** to execute **any command without entering a password**.
 
 ---
 
@@ -352,7 +352,7 @@ ls -l
 
 ```bash
 $ ls -l example.txt
--rw-r--r-- 1 alice staff 98 Jul 10 12:34 example.txt
+-rw-r--r-- 1 sam staff 98 Jul 10 12:34 example.txt
 ```
 
 ---
@@ -363,7 +363,7 @@ $ ls -l example.txt
 | -------------- | ------------------------- |
 | `-rw-r--r--`   | File type and permissions |
 | `1`            | Number of hard links      |
-| `alice`        | Owner                     |
+| `sam`          | Owner                     |
 | `staff`        | Group                     |
 | `98`           | File size (bytes)         |
 | `Jul 10 12:34` | Last modified time        |
@@ -722,474 +722,3 @@ Remember:
 
 ---
 
-# 3. User and Group Management
-
-Linux is designed to support multiple users working on the same system.
-
-To organize users efficiently, Linux uses **groups**, allowing multiple users to share permissions and resources.
-
-This section introduces the most commonly used commands for managing users and groups.
-
----
-
-# 3.1 Linux User and Group Basics
-
-Every Linux user has:
-
-* A **User ID (UID)**
-* A **Primary Group (GID)**
-* One or more **Supplementary Groups**
-* A **Home Directory**
-* A **Login Shell**
-
-For example:
-
-```text
-User: alice
-UID : 1001
-Primary Group : alice
-Home Directory : /home/alice
-Shell : /bin/bash
-```
-
----
-
-# 3.2 Creating a Group (`groupadd`)
-
-## Purpose
-
-Create a new user group.
-
----
-
-## Syntax
-
-```bash
-sudo groupadd groupname
-```
-
----
-
-## Example
-
-```bash
-sudo groupadd devteam
-```
-
-This creates a new group named **devteam**.
-
----
-
-## Notes
-
-* Only users with administrative privileges can create groups.
-* Group information is stored in:
-
-```text
-/etc/group
-```
-
----
-
-# 3.3 Creating a User (`useradd`)
-
-## Purpose
-
-Create a new user account.
-
----
-
-## Syntax
-
-```bash
-sudo useradd username
-```
-
-Create a user **with a home directory**:
-
-```bash
-sudo useradd -m username
-```
-
----
-
-## Common Options
-
-| Option | Description               |
-| ------ | ------------------------- |
-| `-m`   | Create a home directory   |
-| `-g`   | Specify the primary group |
-| `-G`   | Add supplementary groups  |
-
----
-
-## Example
-
-```bash
-sudo useradd -m alice
-```
-
-This command creates:
-
-```text
-/home/alice
-```
-
-as Alice's home directory.
-
----
-
-## Example Session
-
-```bash
-$ sudo useradd -m alice
-
-$ id alice
-
-uid=1001(alice)
-gid=1001(alice)
-groups=1001(alice)
-```
-
----
-
-## Notes
-
-Creating a user **without `-m`** does **not** automatically create a home directory.
-
----
-
-# 3.4 Viewing User Information (`id`)
-
-## Purpose
-
-Display user identity information.
-
----
-
-## Syntax
-
-```bash
-id
-```
-
-Current user:
-
-```bash
-id
-```
-
-Specific user:
-
-```bash
-id username
-```
-
----
-
-## Example
-
-```bash
-id alice
-```
-
-Output:
-
-```text
-uid=1001(alice) gid=1001(alice) groups=1001(alice)
-```
-
----
-
-## Output Explanation
-
-| Field  | Meaning                        |
-| ------ | ------------------------------ |
-| UID    | User ID                        |
-| GID    | Primary Group ID               |
-| Groups | All groups the user belongs to |
-
----
-
-# 3.5 Adding a User to a Group (`usermod`)
-
-## Purpose
-
-Modify an existing user account.
-
-One common use is adding users to supplementary groups.
-
----
-
-## Syntax
-
-```bash
-sudo usermod -aG groupname username
-```
-
----
-
-## Option Explanation
-
-| Option | Meaning              |
-| ------ | -------------------- |
-| `-a`   | Append               |
-| `-G`   | Supplementary groups |
-
-> **Important:** Always use `-aG` together. Omitting `-a` may replace the user's existing supplementary groups.
-
----
-
-## Example
-
-```bash
-sudo usermod -aG devteam alice
-```
-
----
-
-## Verify the Result
-
-```bash
-id alice
-```
-
-Output:
-
-```text
-uid=1001(alice)
-gid=1001(alice)
-groups=1001(alice),1002(devteam)
-```
-
-Alice now belongs to the **devteam** group.
-
----
-
-# 3.6 Deleting Users (`userdel`)
-
-## Purpose
-
-Remove a user account.
-
----
-
-## Syntax
-
-```bash
-sudo userdel username
-```
-
-Remove the user **and** their home directory:
-
-```bash
-sudo userdel -r username
-```
-
----
-
-## Example
-
-```bash
-sudo userdel alice
-```
-
-or
-
-```bash
-sudo userdel -r alice
-```
-
----
-
-## Option Comparison
-
-| Command            | Result                                   |
-| ------------------ | ---------------------------------------- |
-| `userdel alice`    | Remove the user only                     |
-| `userdel -r alice` | Remove the user and their home directory |
-
----
-
-## Notes
-
-By default, the user's home directory remains unless the `-r` option is used.
-
----
-
-# 3.7 Deleting Groups (`groupdel`)
-
-## Purpose
-
-Delete an existing group.
-
----
-
-## Syntax
-
-```bash
-sudo groupdel groupname
-```
-
----
-
-## Example
-
-```bash
-sudo groupdel devteam
-```
-
----
-
-## Notes
-
-A group cannot be deleted if it is still the primary group of an existing user.
-
----
-
-# 3.8 Listing Users and Groups (`getent`)
-
-## Purpose
-
-Display entries from Linux system databases.
-
----
-
-## Syntax
-
-List all users:
-
-```bash
-getent passwd
-```
-
-List all groups:
-
-```bash
-getent group
-```
-
----
-
-## Example
-
-```bash
-$ getent passwd
-
-root:x:0:0:root:/root:/bin/bash
-alice:x:1001:1001::/home/alice:/bin/bash
-...
-```
-
----
-
-```bash
-$ getent group
-
-root:x:0:
-staff:x:50:
-devteam:x:1002:alice
-...
-```
-
----
-
-## Explanation
-
-### `getent passwd`
-
-Displays information such as:
-
-* Username
-* UID
-* GID
-* Home directory
-* Login shell
-
-### `getent group`
-
-Displays:
-
-* Group name
-* Group ID
-* Group members
-
----
-
-## Why Use `getent`?
-
-Unlike reading `/etc/passwd` or `/etc/group` directly, `getent` retrieves entries from the system's configured databases, making it more reliable in environments that use network-based user directories.
-
----
-
-# 3.9 Complete Example
-
-The following example demonstrates a typical user and group management workflow.
-
-```bash
-# Create a group
-sudo groupadd devteam
-
-# Create a user
-sudo useradd -m alice
-
-# View user information
-id alice
-
-# Add the user to a group
-sudo usermod -aG devteam alice
-
-# Verify group membership
-id alice
-```
-
-Expected output:
-
-```text
-uid=1001(alice)
-gid=1001(alice)
-groups=1001(alice),1002(devteam)
-```
-
----
-
-# 3.10 Summary
-
-| Command         | Purpose                                |
-| --------------- | -------------------------------------- |
-| `groupadd`      | Create a group                         |
-| `useradd`       | Create a user                          |
-| `useradd -m`    | Create a user with a home directory    |
-| `usermod -aG`   | Add a user to a supplementary group    |
-| `userdel`       | Delete a user                          |
-| `userdel -r`    | Delete a user and their home directory |
-| `groupdel`      | Delete a group                         |
-| `id`            | Display user information               |
-| `getent passwd` | List all users                         |
-| `getent group`  | List all groups                        |
-
----
-
-## Best Practices
-
-> **Always verify changes after managing users or groups.**
-
-Recommended commands:
-
-```bash
-id username
-```
-
-```bash
-getent passwd
-```
-
-```bash
-getent group
-```
-
-These commands help confirm that users, groups, and memberships have been created or modified correctly.
-
----
-
-> **In this chapter, we learned the fundamentals of Linux user and permission management. We explored how to switch users and execute commands with administrative privileges, manage file ownership and permissions, and create, modify, and organize users and groups. Mastering these essential concepts provides a solid foundation for secure system administration and efficient Linux file management.**
