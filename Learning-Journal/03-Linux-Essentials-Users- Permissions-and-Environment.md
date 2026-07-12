@@ -633,16 +633,6 @@ Instead of numbers, symbolic mode uses letters.
 
 ---
 
-## Operators
-
-| Symbol | Meaning                |
-| ------ | ---------------------- |
-| `+`    | Add permission         |
-| `-`    | Remove permission      |
-| `=`    | Set permission exactly |
-
----
-
 ## Example
 
 ```bash
