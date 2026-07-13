@@ -48,10 +48,10 @@ Run the last executed command.
 !!
 ```
 
-Run the most recent command beginning with **git**.
+Run the most recent command beginning with **py(python)**.
 
 ```bash
-!git
+!py
 ```
 
 ---
@@ -142,18 +142,6 @@ Run the previous command with `sudo`.
 
 ```bash
 sudo !!
-```
-
-Display the current working directory.
-
-```bash
-pwd
-```
-
-Display the current user.
-
-```bash
-whoami
 ```
 
 Display the current shell.
@@ -879,22 +867,6 @@ For production servers:
 - Use reliable NTP servers.
 - Keep the time zone configured correctly.
 
----
-
-# Part 1 Summary
-
-| Command | Purpose |
-|----------|---------|
-| man | View command manuals |
-| yum | Package manager for CentOS |
-| apt | Package manager for Ubuntu |
-| systemctl | Manage system services |
-| ln -s | Create symbolic links |
-| date | Display and calculate date/time |
-| timedatectl | Configure system time zone |
-| ntpdate | Synchronize system time |
-
----
 # 8. IP Address
 
 ## Purpose
