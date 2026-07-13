@@ -2243,24 +2243,6 @@ unzip project.zip -d /home/user/
 
 ---
 
-# Final Summary
-
-| Command | Purpose |
-|----------|---------|
-| wget | Download files |
-| curl | Transfer data / API testing |
-| top | Monitor system resources |
-| df | View disk usage |
-| iostat | Monitor CPU and disk I/O |
-| sar | Collect system performance statistics |
-| export | Create environment variables |
-| echo $PATH | Display PATH variable |
-| tar | Archive and compress files |
-| zip | Compress files |
-| unzip | Extract ZIP archives |
-
----
-
 # Conclusion
 
 Congratulations! 🎉
