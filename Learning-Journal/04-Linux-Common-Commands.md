@@ -2243,24 +2243,6 @@ unzip project.zip -d /home/user/
 
 ---
 
-# Best Practices
-
-✔ Use `tar.gz` on Linux servers.
-
-✔ Use `zip` when sharing files with Windows users.
-
-✔ Use `curl` for API testing.
-
-✔ Use `wget` for downloading large files.
-
-✔ Use `top` or `htop` to monitor system performance.
-
-✔ Regularly check disk usage using `df -h`.
-
-✔ Configure environment variables through `.bashrc`.
-
----
-
 # Final Summary
 
 | Command | Purpose |
